@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="id" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Atma — FloreSumba. Profil, kegiatan, dan anggota kelas Atma SBD-Flores angkatan 2024."
+    />
+    <meta name="author" content="Mr. Floress" />
+    <meta property="og:title" content="Atma — FloreSumba" />
+    <meta
+      property="og:description"
+      content="Profil, kegiatan, dan anggota kelas Atma SBD-Flores angkatan 2024."
+    />
+    <meta property="og:type" content="website" />
+    <title>Atma — FloreSumba</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="js/tailwind-config.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body
+    class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased"
+  >
+    <!-- ═══ NAV ═══ -->
+    <header
+      class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+      :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''"
+    >
+      <nav
+        class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
+        aria-label="Main navigation"
+      >
+        <a
+          href="#hero"
+          class="font-display font-bold text-xl tracking-tight relative z-10"
+        >
+          <span class="text-zinc-900 dark:text-white">FloreS</span
+          ><span class="text-accent">umba</span>
+        </a>
+
+        <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
+          <li>
+            <a
+              href="#services"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='services'?'on !text-zinc-900 dark:!text-white':''"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#work"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='work'?'on !text-zinc-900 dark:!text-white':''"
+              >Aktivitas</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='about'?'on !text-zinc-900 dark:!text-white':''"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#anggota"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='anggota'?'on !text-zinc-900 dark:!text-white':''"
+              >Anggota</a
+            >
+          </li>
+          <!-- <li><a href="#contact" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li> -->
+        </ul>
+
+        <div class="flex items-center gap-3">
+          <!-- dark toggle -->
+          <button
+            @click="dark=!dark"
+            class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
+            :aria-label="dark?'Light mode':'Dark mode'"
+          >
+            <svg
+              x-show="!dark"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+              />
+            </svg>
+            <svg
+              x-show="dark"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"
+              />
+            </svg>
+          </button>
+
+          <!-- hamburger -->
+          <button
+            @click="mm=!mm"
+            class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
+            :aria-expanded="mm"
+            aria-label="Toggle menu"
+          >
+            <svg
+              x-show="!mm"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              x-show="mm"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- mobile menu -->
+      <div
+        x-show="mm"
+        x-cloak
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-2"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-2"
+        class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900"
+      >
+        <ul
+          class="flex flex-col px-6 py-5 gap-4 text-sm font-medium"
+          role="list"
+        >
+          <li>
+            <a
+              href="#services"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#work"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Aktivitas</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Tentang Creator</a
+            >
+          </li>
+          <li>
+            <a
+              href="#anggota"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Anggota</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- ═══ HERO ═══ -->
+      <section
+        id="hero"
+        class="relative min-h-screen flex items-center pt-16 overflow-hidden"
+      >
+        <div
+          class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        ></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <p
+                class="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4"
+              >
+                Wajah-wajah penghuni Dormitory dari SBD
+              </p>
+              <h1
+                class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6"
+              >
+                Haloo, halo
+                <span class="text-accent">Siapapun yang berkunjung</span>
+              </h1>
+              <p
+                class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10"
+              >
+                Ini Web cuman coba-coba sa. Orang yang buat cuman gabut jadi
+                cari template di internet baru coba ganti, sakatak-sakatak
+                selesai<strong
+                  class="font-medium text-zinc-700 dark:text-zinc-300"
+                >
+                  - &amp; -
+                </strong>
+                <br />
+                Klian su biasa toh lihat orang / lakawa-lakawa yg lain buat
+                profil klompoknya mereka di Ig. Jadi nya kmi buat tambah-tambah
+                sdikit biar beda dari yang lain
+              </p>
+              <div
+                class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900"
+              >
+                <div>
+                  <p
+                    class="font-display font-bold text-3xl text-zinc-900 dark:text-white"
+                  >
+                    11
+                  </p>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                    Member
+                  </p>
+                </div>
+                <div>
+                  <p
+                    class="font-display font-bold text-3xl text-zinc-900 dark:text-white"
+                  >
+                    10
+                  </p>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                    Warga SBD
+                  </p>
+                </div>
+                <div>
+                  <p
+                    class="font-display font-bold text-3xl text-zinc-900 dark:text-white"
+                  >
+                    The only 1
+                  </p>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                    Mr. Floress
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal d2 flex justify-center md:justify-end">
+              <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                <div class="pf w-full h-full rounded-3xl">
+                  <img
+                    src="resource gambar/creator.jpg"
+                    alt="Mr. Floress — The only 1"
+                    loading="eager"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ SERVICES ═══ -->
+      <section id="services" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="mb-14">
+            <p
+              class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+            >
+              Nah ini orang-orang pentingnya
+            </p>
+            <h2
+              class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white"
+            >
+              Web Dev.
+            </h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            <article
+              class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent"
+            >
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6 text-accent"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3"
+              >
+                Admin IG
+              </h3>
+              <p
+                class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed"
+              >
+                Wanita berkacamata yang menjabat sebagai Admin ini orangnya
+                baik. Minusnya kadang salah lihat. Beliau punya latar belakang
+                hukum + punya pandangan yang luas (karena kadang ada 4 matanya)
+                <br />
+                Jadi, kalian hati-hati. Senjatanya kitab UU yang tebal
+              </p>
+            </article>
+
+            <article
+              class="reveal d2 card-h group bg-zinc-900 dark:bg-zinc-800 rounded-2xl p-8 border border-zinc-800 hover:border-accent"
+            >
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-zinc-800 dark:bg-zinc-700 rounded-xl mb-6 group-hover:bg-accent/20 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6 text-accent"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-3">
+                Programmer
+              </h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Nah ini. Aminkan saja beliau ini bisa jadi programmer sukses.
+                Funfact ada perbedaan antara Programmer dgn Coder - kalau yang
+                belum tahu <br />
+                Kami punya 4 calon programmer. Mereka itu calon
+                <strong class="font-medium text-zinc-700 dark:text-zinc-300"
+                  >Engineer</strong
+                >
+                <br />
+                Salah satu dari 4 orang itu yang buat ini benda kangaranga.
+              </p>
+            </article>
+
+            <!-- <article class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Landing Pages</h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">High-converting pages for SaaS, apps and personal brands. Designed to communicate value instantly and drive action from the first scroll.</p>
+      </article> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ AKTIVITAS (galeri) ═══ -->
+      <section id="work" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+          <div
+            class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14"
+          >
+            <div>
+              <p
+                class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+              >
+                Aktivitas
+              </p>
+              <h2
+                class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white"
+              >
+                Apa saja kegiatanya kami?
+              </h2>
+            </div>
+            <a
+              href="projects.html"
+              class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl"
+              >Lihat semua →</a
+            >
+          </div>
+
+          <!-- Tiga kegiatan pertama dari js/data-kegiatan.js -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <template x-for="(k, i) in kegiatan.slice(0, 3)" :key="k.id">
+              <article
+                class="card-h reveal group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent"
+                :class="[i === 0 ? 'md:row-span-2' : '', ['d1','d2','d3'][i]]"
+              >
+                <a href="projects.html" class="block">
+                  <div class="pf w-full" :class="i === 0 ? 'h-64 md:h-80' : 'h-48'">
+                    <img
+                      :src="k.foto"
+                      :alt="k.judul"
+                      loading="lazy"
+                      :style="k.posisi ? 'object-position:' + k.posisi : ''"
+                    />
+                  </div>
+                  <div :class="i === 0 ? 'p-7' : 'p-6'">
+                    <h3
+                      class="font-display font-bold text-zinc-900 dark:text-white mb-1.5 group-hover:text-accent transition-colors"
+                      :class="i === 0 ? 'text-2xl' : 'text-xl'"
+                      x-text="k.judul"
+                    ></h3>
+                    <p
+                      class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed"
+                      x-text="k.deskripsi"
+                    ></p>
+                    <p x-show="k.tanggal" class="text-xs text-zinc-400 mt-3" x-text="k.tanggal"></p>
+                  </div>
+                </a>
+              </article>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ ABOUT ═══ -->
+      <section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal order-2 md:order-1">
+              <div class="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
+                <img
+                  src="resource gambar/creator.jpg"
+                  alt="Mr. Floress — The only 1"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div class="order-1 md:order-2">
+              <p
+                class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+              >
+                Tentang creator
+              </p>
+              <h2
+                class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6"
+              >
+                Siapa Dia?
+              </h2>
+              <p
+                class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4"
+              >
+                Dikenal sebagai Mr. Floress. Orang biasa yang kadang
+                membosankan. Jelek tidak. Ganteng? Kata lansia sih ganteng.
+              </p>
+              <p
+                class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8"
+              >
+                Sisanya tidak diketahui. Semakin sedikit yang diketahui semakin
+                baik.
+              </p>
+              <div class="reveal d4">
+                <p
+                  class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3"
+                >
+                  Stack &amp; tools
+                </p>
+                <div
+                  class="flex flex-wrap gap-2"
+                  role="list"
+                  aria-label="Skills"
+                >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >Tailwind CSS</span
+                  >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >Alpine.js</span
+                  >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >HTML / CSS</span
+                  >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >JavaScript</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ ANGGOTA ═══ -->
+      <section id="anggota" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+          <div
+            class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14"
+          >
+            <div>
+              <p
+                class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+              >
+                2024
+              </p>
+              <h2
+                class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white"
+              >
+                Get To Know Us
+              </h2>
+            </div>
+            <a
+              href="profil-anggota.html"
+              class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl"
+              >Lihat sini oit →</a
+            >
+          </div>
+
+          <!-- Empat anggota pertama dari js/data-anggota.js -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <template x-for="(a, i) in anggota.slice(0, 4)" :key="a.id">
+              <a
+                :href="'profil-anggota.html#m' + a.id"
+                class="card-h reveal group block rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent"
+                :class="['d1','d2','d3','d4'][i]"
+              >
+                <div class="pf w-full aspect-[4/5]">
+                  <img
+                    :src="a.foto"
+                    :alt="'Foto ' + a.nama"
+                    loading="lazy"
+                    style="object-position: center 25%"
+                    x-show="!a.gagal"
+                    @error="a.gagal = true"
+                  />
+                  <div
+                    x-show="a.gagal"
+                    x-cloak
+                    class="w-full h-full grid place-items-center bg-accent/10 font-display font-bold text-5xl text-accent"
+                    x-text="inisial(a.nama)"
+                  ></div>
+                </div>
+                <div class="p-4">
+                  <h3
+                    class="font-display font-bold text-lg text-zinc-900 dark:text-white group-hover:text-accent transition-colors"
+                    x-text="a.nama"
+                  ></h3>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5" x-text="a.daerah"></p>
+                </div>
+              </a>
+            </template>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-zinc-100 dark:border-zinc-900">
+      <div
+        class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+      >
+        <p class="text-sm text-zinc-400">
+          © <span id="yr"></span> Mr. Floress.
+        </p>
+        <p class="text-xs text-zinc-500">
+          Built with
+          <a
+            href="https://tailwindcss.com"
+            rel="noopener noreferrer"
+            target="_blank"
+            class="hover:text-accent transition-colors"
+            >Tailwind CSS</a
+          >
+          &amp;
+          <a
+            href="https://alpinejs.dev"
+            rel="noopener noreferrer"
+            target="_blank"
+            class="hover:text-accent transition-colors"
+            >Alpine.js</a
+          >
+        </p>
+        <p>Official Template: Bootstrap5</p>
+      </div>
+    </footer>
+
+    <script src="js/data-kegiatan.js"></script>
+    <script src="js/data-anggota.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

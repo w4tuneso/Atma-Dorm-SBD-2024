@@ -1,0 +1,181 @@
+<!doctype html>
+<html
+  lang="id"
+  x-data="projects()"
+  :class="{'dark':dark}"
+  class="scroll-smooth"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kegiatan Kami</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/projects.css" />
+  </head>
+  <body
+    class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-body antialiased"
+  >
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    :class="scrolled?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':'bg-transparent'">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-display font-bold text-xl tracking-tight z-10">
+        <span class="text-zinc-900 dark:text-white">FloreS</span><span class="text-accent">umba</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="index.html" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Home</a></li>
+        <li><a href="projects.html" class="nav-link text-accent font-medium">Kegiatan</a></li>
+        <li><a href="profil-anggota.html" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Anggota</a></li>
+        <li><a href="index.html#about" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <button @click="dark=!dark;localStorage.setItem('theme',dark?'dark':'light')" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
+          <svg x-show="!dark" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg x-show="dark" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+        </button>
+        <button @click="mobileMenu=!mobileMenu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800" aria-label="Buka menu">
+          <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg x-show="mobileMenu" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2" class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+      <ul class="flex flex-col px-6 py-4 gap-4 text-sm font-medium">
+        <li><a href="index.html" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">Home</a></li>
+        <li><a href="projects.html" @click="mobileMenu=false" class="block text-accent font-medium">Kegiatan</a></li>
+        <li><a href="profil-anggota.html" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">Anggota</a></li>
+        <li><a href="index.html#about" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">About</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+    <main>
+      <section class="pt-36 pb-12 relative overflow-hidden">
+        <div
+          class="absolute top-0 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none"
+        ></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+          <p
+            class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+          >
+            Memories
+          </p>
+          <h1
+            class="reveal font-display font-bold text-5xl md:text-6xl text-zinc-900 dark:text-white leading-tight mb-4"
+          >
+            Kegiatan kami
+          </h1>
+          <p
+            class="reveal text-lg text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed mb-8"
+          >
+            Hanya foto biasa, tapi ya (isi kata-kata kalian LoL).
+          </p>
+        </div>
+      </section>
+
+      <section id="galeri" class="pb-24">
+        <div class="max-w-6xl mx-auto px-6">
+          <!-- Foto diambil dari js/data-kegiatan.js — tambah foto di file itu. -->
+          <div class="columns-1 sm:columns-2 lg:columns-3 gap-6">
+            <template x-for="(k, i) in kegiatan" :key="k.id">
+              <figure
+                class="reveal project-card group mb-6 break-inside-avoid rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent"
+              >
+                <button
+                  type="button"
+                  @click="buka(i)"
+                  class="block w-full overflow-hidden bg-zinc-200 dark:bg-zinc-800"
+                  :aria-label="'Perbesar foto: ' + k.judul"
+                >
+                  <img
+                    :src="k.foto"
+                    :alt="k.judul"
+                    loading="lazy"
+                    class="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                    :style="k.posisi ? 'object-position:' + k.posisi : ''"
+                  />
+                </button>
+                <figcaption class="p-5">
+                  <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors" x-text="k.judul"></h3>
+                  <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" x-text="k.deskripsi"></p>
+                  <p x-show="k.tanggal" class="text-xs text-zinc-400 mt-3" x-text="k.tanggal"></p>
+                </figcaption>
+              </figure>
+            </template>
+          </div>
+          <div x-show="kegiatan.length === 0" x-cloak class="text-center py-20">
+            <p class="text-zinc-400 text-sm">Belum ada foto kegiatan.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-zinc-100 dark:border-zinc-900">
+      <div
+        class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+      >
+        <p class="text-sm text-zinc-400">
+          © <span id="yr"></span> Mr. Floress.
+        </p>
+        <p class="text-xs text-zinc-500">
+          Built with
+          <a
+            href="https://tailwindcss.com"
+            rel="noopener noreferrer"
+            target="_blank"
+            class="hover:text-accent transition-colors"
+            >Tailwind CSS</a
+          >
+          &amp;
+          <a
+            href="https://alpinejs.dev"
+            rel="noopener noreferrer"
+            target="_blank"
+            class="hover:text-accent transition-colors"
+            >Alpine.js</a
+          >
+        </p>
+        <p>Official Template: Bootstrap5</p>
+      </div>
+    </footer>
+
+    <!-- Lightbox: klik foto untuk memperbesar. Esc menutup, panah kiri/kanan berpindah foto. -->
+    <div
+      x-show="lb !== null"
+      x-cloak
+      x-transition.opacity
+      @click.self="tutup()"
+      @keydown.escape.window="tutup()"
+      @keydown.arrow-right.window="lb !== null && geser(1)"
+      @keydown.arrow-left.window="lb !== null && geser(-1)"
+      class="fixed inset-0 z-[60] bg-black/85 flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Pratinjau foto"
+    >
+      <button type="button" @click="tutup()" aria-label="Tutup" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl leading-none transition-colors">&times;</button>
+      <button type="button" @click="geser(-1)" aria-label="Foto sebelumnya" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl leading-none transition-colors">&larr;</button>
+      <button type="button" @click="geser(1)" aria-label="Foto berikutnya" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl leading-none transition-colors">&rarr;</button>
+      <figure class="max-w-4xl w-full flex flex-col items-center">
+        <img :src="kegiatan[lb]?.foto" :alt="kegiatan[lb]?.judul" class="max-h-[78vh] w-auto max-w-full rounded-xl object-contain"/>
+        <figcaption class="mt-4 text-center text-white">
+          <p class="font-display font-bold text-lg" x-text="kegiatan[lb]?.judul"></p>
+          <p class="text-sm text-zinc-300" x-text="kegiatan[lb]?.deskripsi"></p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <script src="js/data-kegiatan.js"></script>
+    <script src="js/projects.js"></script>
+  </body>
+</html>

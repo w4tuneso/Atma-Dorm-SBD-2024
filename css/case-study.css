@@ -1,0 +1,35 @@
+/* Reading progress */
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:#FF6B2B;z-index:100;transition:width .1s linear;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1);}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+
+/* Case study prose */
+.prose-cs h2{font-family:'PT Sans',sans-serif;font-size:1.55rem;font-weight:700;margin:2.75rem 0 1rem;line-height:1.25;}
+.prose-cs h3{font-family:'PT Sans',sans-serif;font-size:1.15rem;font-weight:700;margin:2rem 0 .6rem;line-height:1.3;color:#FF6B2B;}
+.prose-cs p{margin:0 0 1.4rem;line-height:1.82;color:#52525b;}
+.dark .prose-cs p{color:#a1a1aa;}
+.prose-cs ul{margin:0 0 1.4rem 1.5rem;list-style:disc;}
+.prose-cs li{margin-bottom:.45rem;line-height:1.7;color:#52525b;}
+.dark .prose-cs li{color:#a1a1aa;}
+.prose-cs blockquote{border-left:3px solid #FF6B2B;padding:.75rem 1.25rem;margin:0 0 1.8rem;background:#fff7f4;border-radius:0 8px 8px 0;}
+.dark .prose-cs blockquote{background:#27272a;}
+.prose-cs blockquote p{color:#52525b;font-style:italic;margin:0;}
+.dark .prose-cs blockquote p{color:#a1a1aa;}
+.prose-cs hr{border:none;border-top:1px solid #e4e4e7;margin:2.5rem 0;}
+.dark .prose-cs hr{border-top-color:#27272a;}
+.prose-cs a{color:#FF6B2B;text-decoration:underline;text-underline-offset:3px;}
+
+/* Stat card */
+.stat-card{border-left:3px solid #FF6B2B;}
+
+/* Image caption */
+.img-caption{font-size:.8rem;color:#a1a1aa;text-align:center;margin-top:.6rem;}
+
+/* Step badge */
+.step-badge{width:2rem;height:2rem;min-width:2rem;border-radius:50%;background:#FF6B2B;color:#fff;font-family:'PT Sans',sans-serif;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;}
+
+/* card hover */
+.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s;}
+.card-h:hover{transform:translateY(-4px);}
