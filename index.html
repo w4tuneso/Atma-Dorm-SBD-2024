@@ -450,7 +450,10 @@
                 :class="[i === 0 ? 'md:row-span-2' : '', ['d1','d2','d3'][i]]"
               >
                 <a href="projects.html" class="block">
-                  <div class="pf w-full" :class="i === 0 ? 'h-64 md:h-80' : 'h-48'">
+                  <div
+                    class="pf w-full"
+                    :class="i === 0 ? 'h-64 md:h-80' : 'h-48'"
+                  >
                     <img
                       :src="k.foto"
                       :alt="k.judul"
@@ -468,7 +471,11 @@
                       class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed"
                       x-text="k.deskripsi"
                     ></p>
-                    <p x-show="k.tanggal" class="text-xs text-zinc-400 mt-3" x-text="k.tanggal"></p>
+                    <p
+                      x-show="k.tanggal"
+                      class="text-xs text-zinc-400 mt-3"
+                      x-text="k.tanggal"
+                    ></p>
                   </div>
                 </a>
               </article>
@@ -606,7 +613,10 @@
                     class="font-display font-bold text-lg text-zinc-900 dark:text-white group-hover:text-accent transition-colors"
                     x-text="a.nama"
                   ></h3>
-                  <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5" x-text="a.daerah"></p>
+                  <p
+                    class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5"
+                    x-text="a.daerah"
+                  ></p>
                 </div>
               </a>
             </template>

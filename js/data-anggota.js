@@ -12,20 +12,125 @@
    ig / in : tautan Instagram / LinkedIn ("#" = belum diisi).
    ═══════════════════════════════════════════════════════════════ */
 const DATA_ANGGOTA = [
-  { id: 1,  nama: "Adell",           daerah: "Ende, Flores",                 lahir: "1 Januari 2005",   foto: "resource gambar/adell (1).jpeg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini: minat, hobi, atau motto hidupnya." },
-  { id: 2,  nama: "Istyn",           daerah: "Waingapu, Sumba Timur",        lahir: "2 Februari 2005",  foto: "resource gambar/istyn.jpeg",     ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 3,  nama: "Econ",            daerah: "Maumere, Sikka",               lahir: "3 Maret 2005",     foto: "resource gambar/econ.jpg",       ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 4,  nama: "Nama Anggota 4",  daerah: "Ruteng, Manggarai",            lahir: "4 April 2005",     foto: "resource gambar/anggota-04.jpg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 5,  nama: "Nama Anggota 5",  daerah: "Bajawa, Ngada",                lahir: "5 Mei 2005",       foto: "resource gambar/anggota-05.jpg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 6,  nama: "Nama Anggota 6",  daerah: "Waikabubak, Sumba Barat",      lahir: "6 Juni 2005",      foto: "resource gambar/anggota-06.jpg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 7,  nama: "Nama Anggota 7",  daerah: "Labuan Bajo, Manggarai Barat", lahir: "7 Juli 2005",      foto: "resource gambar/anggota-07.jpg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 8,  nama: "Nama Anggota 8",  daerah: "Larantuka, Flores Timur",      lahir: "8 Agustus 2005",   foto: "resource gambar/anggota-08.jpg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 9,  nama: "Nama Anggota 9",  daerah: "Kupang",                       lahir: "9 September 2005", foto: "resource gambar/anggota-09.jpg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 10, nama: "Nama Anggota 10", daerah: "Mbay, Nagekeo",                lahir: "10 Oktober 2005",  foto: "resource gambar/anggota-10.jpg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." },
-  { id: 11, nama: "Nama Anggota 11", daerah: "Atambua, Belu",                lahir: "11 November 2005", foto: "resource gambar/anggota-11.jpg", ig: "#", in: "#", desc: "Tulis deskripsi singkat anggota di sini." }
+  {
+    id: 1,
+    nama: "Adella",
+    daerah: "Sumba Barat Daya",
+    lahir: "1 Januari 2005",
+    foto: "resource gambar/adell (1).jpeg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini: minat, hobi, atau motto hidupnya.",
+  },
+  {
+    id: 2,
+    nama: "Istyn",
+    daerah: "Kodi, Sumba Barat Daya",
+    lahir: "2 Februari 2005",
+    foto: "resource gambar/istyn.jpeg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 3,
+    nama: "Econ",
+    daerah: "SBD",
+    lahir: "3 Maret 2005",
+    foto: "resource gambar/econ.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 4,
+    nama: "Hiron Gachor",
+    daerah: "SBD",
+    lahir: "4 April 2005",
+    foto: "resource gambar/anggota-04.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 5,
+    nama: "Echy",
+    daerah: "SBD",
+    lahir: "5 Mei 2005",
+    foto: "resource gambar/anggota-05.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 6,
+    nama: "Intan ",
+    daerah: "SBD",
+    lahir: "6 Juni 2005",
+    foto: "resource gambar/anggota-06.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 7,
+    nama: "Army",
+    daerah: "SBD",
+    lahir: "7 Juli 2005",
+    foto: "resource gambar/anggota-07.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 8,
+    nama: "George",
+    daerah: "Ende Flores",
+    lahir: "8 Agustus 2005",
+    foto: "resource gambar/anggota-08.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 9,
+    nama: "Aulin",
+    daerah: "Larantuka - SBD",
+    lahir: "9 September 2005",
+    foto: "resource gambar/anggota-09.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 10,
+    nama: "Atta",
+    daerah: "SBD",
+    lahir: "10 Oktober 2005",
+    foto: "resource gambar/anggota-10.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
+  {
+    id: 11,
+    nama: "Jacko",
+    daerah: "SBD",
+    lahir: "11 November 2005",
+    foto: "resource gambar/anggota-11.jpg",
+    ig: "#",
+    in: "#",
+    desc: "Tulis deskripsi singkat anggota di sini.",
+  },
 ];
 
 /* Dua huruf awal nama — dipakai sebagai cadangan bila foto belum ada */
 function inisialNama(nama) {
-  return nama.split(' ').filter(Boolean).slice(0, 2).map(k => k[0]).join('').toUpperCase();
+  return nama
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((k) => k[0])
+    .join("")
+    .toUpperCase();
 }
