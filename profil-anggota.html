@@ -205,13 +205,13 @@
           <h1
             class="reveal font-display font-bold text-5xl md:text-6xl text-zinc-900 dark:text-white leading-tight mb-4"
           >
-            Anggota Kelas
+            Atma Dorm SBD - Flores
           </h1>
           <p
             class="reveal text-lg text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed"
           >
-            Sebelas orang dari berbagai penjuru Nusa Tenggara Timur yang belajar
-            bersama sebagai angkatan 2024.
+            Sebelas Pemuda-pemudi kangaranga Nusa Tenggara Timur yang datang
+            untuk belajar di UNIKA Atma Jaya dan menjadi penghuni di Dormitory .
           </p>
         </div>
       </section>
@@ -266,8 +266,13 @@
                       x-text="a.nama"
                     ></h2>
                     <p
+                      class="text-lg text-zinc-500 dark:text-zinc-400 mb-2"
+                      x-show="a.nl"
+                      x-text="a.nl"
+                    ></p>
+                    <p
                       class="text-sm text-zinc-400 mb-5"
-                      x-text="'Lahir ' + a.lahir"
+                      x-text="'Lahir : ' + a.lahir"
                     ></p>
                     <p
                       class="text-zinc-500 dark:text-zinc-400 leading-8 mb-8 max-w-prose"
