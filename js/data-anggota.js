@@ -29,7 +29,7 @@ const DATA_ANGGOTA = [
     nl: "Kristina Felisitas Noto Mali",
     daerah: "Kodi, Sumba Barat Daya",
     lahir: "Admin bilang dia nyusul lahirnya",
-    foto: "resource gambar/Istyn.jpeg",
+    foto: "resource gambar/Kristyn.jpeg",
     ig: "#",
     in: "#",
     desc: "The only one girl dari prodi Hukum. Punya penglihatan ganda. Kk Nona ini juga sangat berpengalaman dalam dunia PDD/Dokumentasi. Jangan sungkan tanya soal foto, video, dan editing. Dia pasti bisa bantu.",
